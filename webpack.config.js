@@ -39,8 +39,8 @@ module.exports = {
                 removeComments: true,
             }
         }),
-        new webpack.LoaderOptionsPlugin({
-            options: {
+        new webpack.LoaderOptionsPlugin({//注意这里配置了autoprefixer插件，前面你要有const webpack 
+            options: {                    //和const autoprefixer的声明
                 postcss: function() {
                     return [autoprefixer];
                 }
