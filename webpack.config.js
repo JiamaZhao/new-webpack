@@ -24,8 +24,30 @@ module.exports = {
             test: /\.html$/,
             loader: 'html-loader'
         }, {
+            test: /\.tpl$/,
+            loader: 'ejs-loader'
+        }, {
             test: /\.css$/,
-            loader: 'style-loader!css-loader!postcss-loader',
+            loader: 'style-loader!css-loader?importLoaders=1!postcss-loader',
+        },
+        {
+            test: /\.less$/,
+            loader: 'style-loader!css-loader!postcss-loader!less-loader'
+        },
+        {
+            test: /\.(png|jpg|svg|gif)$/i,
+            loader: 'file-loader',
+            query: {
+                limit: 20000,
+                name: 'assets/[name].[ext]'
+            }
+        },
+        {
+            test: /\.(png|jpg|svg|gif)$/i,
+            loader: 'file-loader',
+            query: {
+                name: 'assets/[name].[ext]'
+            }
         }]
     },
     plugins: [
